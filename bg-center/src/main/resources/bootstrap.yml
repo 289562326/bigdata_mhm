@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: bg-center
+
+server:  
+  port: 8761
+
+eureka:
+  instance:
+    #将IP注册到Eureka Server上，false就是机器的主机名
+    prefer-ip-address: true
+    #eureka注册中心的url link
+    status-page-url-path: /actuator/info
+    #健康检查的url
+    health-check-url-path: /actuator/health
+    hostname: localhost
+  client:
+    #是否注册到注册中心
+    register-with-eureka: false
+    #是否从注册中心拉取注册服务列表
+    #为true时，可以启动，但报异常：Cannot execute request on any known server
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+# actuator加载所有的端点/默认只加载了 info / health
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
+#  endpoint:
+#    health:
+#      show-details: ALWAYS

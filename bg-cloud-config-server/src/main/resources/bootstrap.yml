@@ -1,0 +1,39 @@
+server:
+  port: 8085
+
+#配置当前服务的名称
+spring:
+  application:
+    name: service-config #配置服务名称
+  profiles:
+    active: native #设置为本地启动的方式，而不是通过git
+  cloud:
+    config:
+      server:
+        native:
+          searchLocations: classpath:/config   # 配置文件所在目录，classpath（类路径）和（系统文件路径） file两种
+  #本地环境不需要配置mq
+#  rabbitmq:
+#    host: 127.0.0.1
+#    port: 5672
+#    username: admin
+#    password: 888888
+
+# 注册中心
+eureka:
+  instance:
+      leaseRenewalIntervalInSeconds: 10
+      health-check-url-path: /actuator/health
+  client:
+      registryFetchIntervalSeconds: 5
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+
+management:  #actuator
+  endpoints:
+    web:
+      exposure:            #      base-path: / #默认是/actuator 前缀，可以在这里修改
+        include: "*"  #打开全部请求端点
+  endpoint:
+    health:
+      show-details: ALWAYS

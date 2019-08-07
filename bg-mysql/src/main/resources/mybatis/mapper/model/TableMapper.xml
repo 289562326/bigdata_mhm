@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhm.model.dao.TableDao">
+
+
+    <select id="selectByPrimaryKey" parameterType="Map" resultType="java.util.HashMap" statementType="STATEMENT">
+        select
+        <foreach collection="columns" separator="," item="column">
+            ${column}
+        </foreach>
+        from ${tableName}
+        where
+        <foreach collection="params.keys" separator="," item="param">
+            ${param}=${params[param]}
+        </foreach>
+    </select>
+
+
+    <select id="selectAll" parameterType="Map" resultType="java.util.HashMap" statementType="STATEMENT">
+        select
+        <foreach collection="columns" separator="," item="column">
+            ${column}
+        </foreach>
+        from ${tableName}
+    </select>
+
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from ${tableName}
+        where
+        <foreach collection="params.keys" separator="," item="param">
+            ${param}=${params[param]}
+        </foreach>
+    </delete>
+
+    <insert id="insert" parameterType="Map"
+            useGeneratedKeys="true" keyProperty="${key}" keyColumn="${key}">
+        insert into ${tableName}
+        <foreach collection="columns" open="(" separator="," close=")" item="column">
+            ${column}
+        </foreach>
+
+        values
+        <foreach collection="values.keys"  open="(" separator="," close=")" item="value">
+            ${values[value]}
+        </foreach>
+    </insert>
+
+
+
+    <update id="updateByPrimaryKey" parameterType="Map">
+        update ${tableName}
+        set
+        <foreach collection="values.keys"  separator=","  item="value">
+            ${value}=${values[value]}
+        </foreach>
+
+        where
+
+        <foreach collection="params.keys" separator="," item="param">
+            ${param}=${params[param]}
+        </foreach>
+    </update>
+</mapper>
