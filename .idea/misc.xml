@@ -1,35 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="EntryPointsManager">
-    <entry_points version="2.0" />
-  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-center/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-hdfs/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-actuator/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-admin/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-redis/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-mysql/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-springdatarest/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-swagger/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-zuul/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-gateway/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-hystrix/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-config/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-config-client/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-auth/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-security/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-jwt/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-config-server/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-netty4/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-feign/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-feign-server/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-center/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-ribbon/src/pom.xml" />
-        <option value="$PROJECT_DIR$/bg-cloud-ribbon/pom.xml" />
       </list>
     </option>
   </component>
@@ -44,10 +18,9 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" assert-keyword="true" jdk-15="true" project-jdk-name="1.8_64" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/out" />
+    <output url="file://$PROJECT_DIR$/classes" />
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
   </component>
-  <component name="WebServicesPlugin" addRequiredLibraries="true" />
 </project>
