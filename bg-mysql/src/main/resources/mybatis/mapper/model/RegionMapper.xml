@@ -59,4 +59,5 @@
     industry, measure, remark, sort, region_level, state, path
     from t_cfg_region
   </select>
+
 </mapper>

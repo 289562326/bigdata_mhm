@@ -1,5 +1,6 @@
 package com.mhm.netty.server;
 
+import com.example.demo.KafkaServer;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -34,6 +35,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter { //implements C
     public void channelActive(ChannelHandlerContext ctx) {
         System.out.println("channelActive----->");
         ctx.pipeline().channel().writeAndFlush("服务端主动发");
+        KafkaServer.send("sdfafda");
 //        for(int i=0;i<1000;i++){
 //            ctx.channel().writeAndFlush(""+i);
 ////            try {
@@ -85,5 +87,9 @@ public class ServerHandler extends ChannelInboundHandlerAdapter { //implements C
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         ctx.close();
+    }
+
+    public static Map<String, Channel> getMaps() {
+        return maps;
     }
 }

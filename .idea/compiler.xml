@@ -22,10 +22,54 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="bg-actuator" />
+        <module name="bg-admin" />
+        <module name="bg-auth" />
+        <module name="bg-center" />
+        <module name="bg-cloud-center" />
+        <module name="bg-cloud-config" />
+        <module name="bg-cloud-config-client" />
+        <module name="bg-cloud-config-server" />
+        <module name="bg-cloud-feign" />
+        <module name="bg-cloud-feign-server" />
+        <module name="bg-cloud-gateway" />
+        <module name="bg-cloud-hystrix" />
+        <module name="bg-cloud-ribbon" />
+        <module name="bg-cloud-zuul" />
+        <module name="bg-hdfs" />
+        <module name="bg-jwt" />
+        <module name="bg-mysql" />
+        <module name="bg-netty4" />
+        <module name="bg-redis" />
+        <module name="bg-security" />
+        <module name="bg-springdatarest" />
+        <module name="bg-swagger" />
         <module name="bigdata_mhm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bg-actuator" target="1.8" />
+      <module name="bg-admin" target="1.8" />
+      <module name="bg-auth" target="1.8" />
+      <module name="bg-center" target="1.8" />
+      <module name="bg-cloud-center" target="1.8" />
+      <module name="bg-cloud-config" target="1.8" />
+      <module name="bg-cloud-config-client" target="1.8" />
+      <module name="bg-cloud-config-server" target="1.8" />
+      <module name="bg-cloud-feign" target="1.8" />
+      <module name="bg-cloud-feign-server" target="1.8" />
+      <module name="bg-cloud-gateway" target="1.8" />
+      <module name="bg-cloud-hystrix" target="1.8" />
+      <module name="bg-cloud-ribbon" target="1.8" />
+      <module name="bg-cloud-zuul" target="1.8" />
+      <module name="bg-hdfs" target="1.8" />
+      <module name="bg-jwt" target="1.8" />
+      <module name="bg-mysql" target="1.8" />
+      <module name="bg-netty4" target="1.8" />
+      <module name="bg-redis" target="1.8" />
+      <module name="bg-security" target="1.8" />
+      <module name="bg-springdatarest" target="1.8" />
+      <module name="bg-swagger" target="1.8" />
       <module name="bigdata_mhm" target="1.8" />
     </bytecodeTargetLevel>
   </component>

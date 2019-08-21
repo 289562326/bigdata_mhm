@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>com.mhm</groupId>
-	<artifactId>bg-center</artifactId>
+	<artifactId>bg-cloud-center</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bg-center</name>
 	<description>springcloud register center</description>

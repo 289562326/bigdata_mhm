@@ -9,7 +9,7 @@
     <version>1.0</version>
 
     <modules>
-        <module>bg-center</module>
+        <module>bg-cloud-center</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
