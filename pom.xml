@@ -10,6 +10,24 @@
 
     <modules>
         <module>bg-cloud-center</module>
+        <module>bg-cloud-config-client</module>
+        <module>bg-cloud-config-server</module>
+        <module>bg-cloud-feign-server</module>
+        <module>bg-cloud-gateway</module>
+        <module>bg-cloud-hystrix</module>
+        <module>bg-cloud-ribbon</module>
+        <module>bg-cloud-zuul</module>
+        <module>bg-actuator</module>
+        <module>bg-admin</module>
+        <module>bg-auth</module>
+        <module>bg-hdfs</module>
+        <module>bg-jwt</module>
+        <module>bg-mysql</module>
+        <module>bg-netty4</module>
+        <module>bg-redis</module>
+        <module>bg-security</module>
+        <module>bg-springdatarest</module>
+        <module>bg-swagger</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
