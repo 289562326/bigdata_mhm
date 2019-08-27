@@ -10,6 +10,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,6 +25,13 @@ import java.util.Map;
 @RestController
 @RequestMapping(value = "/debug")
 public class TestControler {
+
+    @ApiOperation(value = "debug")
+    @RequestMapping()
+    public String test(@RequestParam(value="name") String name) {
+        //从请求头中取出token
+        return "hello:"+name;
+    }
 
     @ApiOperation(value = "debug")
     @RequestMapping(method = RequestMethod.GET, value = "/test")

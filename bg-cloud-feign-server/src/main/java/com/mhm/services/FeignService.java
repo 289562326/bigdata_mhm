@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * Created by MaHuiming on 2019/8/21.
  */
-@FeignClient(value = "test-service")
+@FeignClient(value = "bg-cloud-zipkin")
 public interface FeignService {
 
     //服务中方法的映射路径
