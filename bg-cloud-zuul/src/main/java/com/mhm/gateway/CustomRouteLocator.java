@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * 自定义路由
- * Created by MaHuiming on 2019/6/14.
+ * Created by Mhm on 2019/6/14.
  */
 public class CustomRouteLocator extends SimpleRouteLocator implements RefreshableRouteLocator {
 
@@ -59,6 +59,9 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
         return values;
     }
 
+    /**
+     * 从数据库获取路由配置信息
+     */
     private Map<String, ZuulProperties.ZuulRoute> locateRoutesFromDB() {
         Map<String, ZuulProperties.ZuulRoute> routes = new LinkedHashMap<>();
         List<Route> results = routeDao.selectAll();
