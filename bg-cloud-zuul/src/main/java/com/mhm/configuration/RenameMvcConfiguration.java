@@ -10,10 +10,10 @@ import java.util.List;
 
 /**
  * 自定义拦截器
- * Created by MaHuiming on 2020-4-4.
+ * Created by Mhm on 2020-4-4.
  */
 @Configuration
-public class MvcConfiguration extends WebMvcConfigurationSupport {
+public class RenameMvcConfiguration extends WebMvcConfigurationSupport {
 
     /**
      * 增加拦截器
