@@ -1,5 +1,6 @@
 package com.mhm.controller;
 
+import com.mhm.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -7,21 +8,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by MaHuiming on 2019/6/25.
+ * 从配置中心获取配置参数
+ * Created by MHm on 2019/6/25.
  */
 @RestController
 @RefreshScope
-public class TestController {
+public class ConfigController {
 
     @Autowired
-    private TestService testService;
+    private ConfigService configService;
 
     @Value("${switchStr:not found}")
     private String switchStr;
 
     @RequestMapping("/test")
     public String test(){
-        return testService.getSwitchStr();
+        return configService.getSwitchStr();
     }
 
     @RequestMapping("/debug")

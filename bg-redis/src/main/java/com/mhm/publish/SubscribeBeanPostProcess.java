@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 
 /**
  * bean初始化的时候对每个bean进行检查然后给有对应注解的方法进行订阅处理
- * Created by MaHuiming on 2019/8/19.
+ * Created by MHm on 2019/8/19.
  */
 public class SubscribeBeanPostProcess implements BeanPostProcessor,ApplicationContextAware {
     @Autowired

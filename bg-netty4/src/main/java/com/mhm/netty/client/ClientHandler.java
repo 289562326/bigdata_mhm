@@ -4,7 +4,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
- * Created by MaHuiming on 2019/7/31.
+ * Created by MHm on 2019/7/31.
  */
 public class ClientHandler extends ChannelInboundHandlerAdapter  {//implements ChannelOutboundHandler
     @Override

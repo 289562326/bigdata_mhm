@@ -3,7 +3,7 @@ package com.mhm;
 import com.github.tomakehurst.wiremock.client.WireMock;
 
 /**
- * Created by MaHuiming on 2019/8/23.
+ * Created by MHm on 2019/8/23.
  */
 public class MainTest {
     public static void main(String[] args) {

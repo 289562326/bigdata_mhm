@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by MaHuiming on 2019/7/31.
+ * Created by MHm on 2019/7/31.
  */
 public class NettyClient {
     static final String HOST = System.getProperty("host", "127.0.0.1");

@@ -1,4 +1,6 @@
 # 配置文件客户端搭建，有点坑啊，注意要将调用配置服务的信息，配置到bootstrap.yml中，不然，只会跑到默认的配置服务http://localhost:8888
+server:
+  port: 8767
 
 spring:
   application:
@@ -7,22 +9,30 @@ spring:
       active: native #设置为本地启动的方式，而不是通过git
   cloud:
     config:
-      uri: http://127.0.0.1:8085 #配置服务的地址 bootstrap.yml
-      profile: client-dev  #版本
-      name: config
+      uri: http://127.0.0.1:8766 #配置服务的地址 bootstrap.yml
+      profile: client-dev  #文件概要
+      name: config        #文件名
 #  rabbitmq:
 #    host: 127.0.0.1
 #    port: 5672
 #    username: admin
 #    password: 888888
-server:
-  port: 8081
 
+# 注册中心
+eureka:
+  instance:
+      leaseRenewalIntervalInSeconds: 10
+      health-check-url-path: /actuator/health
+  client:
+      registryFetchIntervalSeconds: 5
+      service-url:
+        defaultZone: http://bg-center:8761/eureka/
 
-management:  #actuator
+#actuator
+management:
   endpoints:
     web:
-      exposure:            #      base-path: / #默认是/actuator 前缀，可以在这里修改
+      exposure:            # base-path: / #默认是/actuator 前缀，可以在这里修改
         include: "*"  #打开全部请求端点
   endpoint:
     health:

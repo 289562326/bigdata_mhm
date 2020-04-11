@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 /**
  * 接口调用前的拦截器，可以限流、黑白名单过滤
- * Created by MaHuiming on 2020-4-4.
+ * Created by MHm on 2020-4-4.
  */
 @Component
 public class PreRequestFilter  extends ZuulFilter {

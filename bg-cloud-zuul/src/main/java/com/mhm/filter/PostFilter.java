@@ -20,7 +20,7 @@ import static org.aspectj.weaver.tools.cache.SimpleCacheFactory.path;
 
 /**
  * 拦截器，可以记录日志、API统计、接口权限等
- * Created by MaHuiming on 2020-4-4.
+ * Created by MHm on 2020-4-4.
  */
 @Component
 public class PostFilter extends ZuulFilter {

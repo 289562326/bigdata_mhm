@@ -1,15 +1,16 @@
-package com.mhm.controller;
+package com.mhm.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 /**
- * Created by MaHuiming on 2019/6/25.
+ * 配置文件信息后去测试
+ * Created by MHm on 2019/6/25.
  */
 @Service
 @RefreshScope
-public class TestService {
+public class ConfigService {
 
     @Value("${switchStr}")
     public String switchStr;

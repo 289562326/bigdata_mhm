@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 /**
- * Created by MaHuiming on 2019/7/5.
+ * Created by MHm on 2019/7/5.
  */
 @Configuration
 public class HDFSConfiguration {

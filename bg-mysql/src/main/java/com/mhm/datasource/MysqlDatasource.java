@@ -14,7 +14,7 @@
 ///**
 // * Mysql数据源配置
 // * 支持多数据源
-// * Created by MaHuiming on 2018/8/13.
+// * Created by MHm on 2018/8/13.
 // */
 //@Configuration
 //@MapperScan(basePackages = {"com.mhm.*.dao.mapper"},sqlSessionFactoryRef = "MySqlSessionFactory")

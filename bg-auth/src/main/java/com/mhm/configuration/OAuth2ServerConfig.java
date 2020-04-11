@@ -17,7 +17,7 @@
 //import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 //
 ///**
-// * Created by MaHuiming on 2019/6/26.
+// * Created by MHm on 2019/6/26.
 // */
 //@Configuration
 //public class OAuth2ServerConfig {

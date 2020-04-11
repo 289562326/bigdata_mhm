@@ -7,7 +7,7 @@
     <groupId>com.mhm</groupId>
     <artifactId>bigdata_mhm</artifactId>
     <version>1.0</version>
-
+    <packaging>pom</packaging>
     <modules>
         <module>bg-cloud-center</module>
         <module>bg-cloud-config-client</module>

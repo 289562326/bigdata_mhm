@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * Created by MaHuiming on 2019/8/19.
+ * Created by MHm on 2019/8/19.
  */
 public class RedisPublisher implements Publisher {
 

@@ -23,8 +23,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 通过直接写PrepertySource更新路由
- * Created by MaHuiming on 2020-4-4.
+ * 方式1：通过直接写PrepertySource更新路由
+ * Created by MHm on 2020-4-4.
  */
 //暂时注释掉
 //@Component

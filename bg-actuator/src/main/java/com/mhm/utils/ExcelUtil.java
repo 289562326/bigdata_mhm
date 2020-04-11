@@ -1,4 +1,4 @@
-package com.mhm;
+package com.mhm.utils;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,12 +11,12 @@ import java.io.IOException;
 
 /**
  * 导出错误码
- * Created by MaHuiming on 2019/5/28.
+ * Created by MHm on 2019/5/28.
  */
 public class ExcelUtil {
     private static final String fileName = "C:\\Users\\Administrator\\Desktop\\电力\\525\\2.xlsx";
     private static final String writerFileName =
-    System.getProperty("user.dir") + "\\src\\main\\java\\com\\znv\\user\\common\\exception\\ResultCodeEnum.java";
+    System.getProperty("user.dir") + "\\src\\main\\java\\com\\mhm\\user\\common\\exception\\ResultCodeEnum.java";
 
     private static StringBuffer sb = new StringBuffer();
     private static final String line = System.getProperty("line.separator");
@@ -27,7 +27,7 @@ public class ExcelUtil {
 
     public static void readExcel(String fileName) {
 
-        sb.append("package com.znv.user.common.exception;").append(line);
+        sb.append("package com.mhm.user.common.exception;").append(line);
         sb.append("public enum ResultCodeEnum {").append(line);
         FileInputStream fileInputStream = null;
         try {

@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
 
 
 /**
- * 动态路由配置
- * Created by MaHuiming on 2019/6/14.
+ * 方式2：动态路由配置
+ * Created by MHm on 2019/6/14.
  */
 @Configuration
 public class MyDynamicRouteConfiguration {

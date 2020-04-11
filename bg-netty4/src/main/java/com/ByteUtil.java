@@ -4,7 +4,7 @@ import java.util.Base64;
 
 /**
  * 字节数组工具类
- * Created by MaHuiming on 2018/3/6.
+ * Created by MHm on 2018/3/6.
  */
 public class ByteUtil {
 

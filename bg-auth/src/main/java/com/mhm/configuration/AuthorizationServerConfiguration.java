@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 
 /**
  *
- * Created by MaHuiming on 2019/6/26.
+ * Created by MHm on 2019/6/26.
  */
 @Configuration
 @EnableAuthorizationServer

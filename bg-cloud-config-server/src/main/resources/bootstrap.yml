@@ -1,12 +1,12 @@
 server:
-  port: 8085
+  port: 8766
 
 #配置当前服务的名称
 spring:
   application:
     name: service-config #配置服务名称
   profiles:
-    active: native #设置为本地启动的方式，而不是通过git
+    active: native #设置为本地启动的方式，支持git、svn、jdbc等方式
   cloud:
     config:
       server:
@@ -27,12 +27,13 @@ eureka:
   client:
       registryFetchIntervalSeconds: 5
       service-url:
-        defaultZone: http://localhost:8761/eureka/
+        defaultZone: http://bg-center:8761/eureka/
 
-management:  #actuator
+#actuator
+management:
   endpoints:
     web:
-      exposure:            #      base-path: / #默认是/actuator 前缀，可以在这里修改
+      exposure:            #base-path: / #默认是/actuator 前缀，可以在这里修改
         include: "*"  #打开全部请求端点
   endpoint:
     health:

@@ -11,6 +11,10 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.Bean;
 
+/**
+ * 展示Hystrix的Daboard面板
+ * 供feign调用测试熔断配置
+ */
 @SpringBootApplication
 @EnableHystrix
 @EnableHystrixDashboard

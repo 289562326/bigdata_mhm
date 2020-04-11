@@ -21,7 +21,7 @@ import java.util.Set;
 
 /**
  * 使用springboot的Redis
- * Created by MaHuiming on 2019/6/14.
+ * Created by MHm on 2019/6/14.
  */
 @Configuration
 @EnableCaching

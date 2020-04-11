@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Created by MaHuiming on 2019/8/26.
+ * Created by MHm on 2019/8/26.
  */
 @RestController
 public class ZipKinTest {
@@ -23,6 +23,6 @@ public class ZipKinTest {
     @RequestMapping(value = "/test2")
     public String test2(){
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForEntity("http://localhost:8201/test",String.class).getBody();
+        return restTemplate.getForEntity("http://bg-center:8764/test",String.class).getBody();
     }
 }

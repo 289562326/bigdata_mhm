@@ -8,9 +8,12 @@ import org.springframework.stereotype.Component;
 import java.util.Set;
 
 /**
- * Created by MaHuiming on 2019/6/26.
+ * 定时刷新,暂时注释
+ * Created by MHm on 2019/6/26.
  */
 @Component
+//@EnableScheduling
+//@EnableAsync
 public class Sch {
     @Autowired
     private ContextRefresher contextRefresher;

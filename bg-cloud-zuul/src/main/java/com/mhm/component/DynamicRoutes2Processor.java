@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 直接更新路由信息
+ * 方式2：直接更新路由信息
  * Created by MHm on 2020-4-4.
  */
 //暂时注释掉

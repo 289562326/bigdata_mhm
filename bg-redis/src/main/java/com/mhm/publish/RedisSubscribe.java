@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Created by MaHuiming on 2019/8/19.
+ * Created by MHm on 2019/8/19.
  */
 @lombok.extern.slf4j.Slf4j
 public class RedisSubscribe extends JedisPubSub {

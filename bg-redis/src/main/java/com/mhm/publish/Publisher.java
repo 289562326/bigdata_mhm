@@ -1,7 +1,7 @@
 package com.mhm.publish;
 
 /**
- * Created by MaHuiming on 2019/8/19.
+ * Created by MHm on 2019/8/19.
  */
 public interface Publisher {
 

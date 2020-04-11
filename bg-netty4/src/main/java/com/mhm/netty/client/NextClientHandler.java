@@ -7,7 +7,7 @@ import io.netty.channel.ChannelPromise;
 import java.net.SocketAddress;
 
 /**
- * Created by MaHuiming on 2019/8/5.
+ * Created by MHm on 2019/8/5.
  */
 public class NextClientHandler extends ChannelOutboundHandlerAdapter {
 

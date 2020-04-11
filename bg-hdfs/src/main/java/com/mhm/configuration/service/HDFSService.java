@@ -19,12 +19,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by MaHuiming on 2019/7/5.
+ * Created by MHm on 2019/7/5.
  */
 @Service
 public class HDFSService {
 
     private Configuration conf = null;
+    private static FileSystem fileSystem = null;
+
     @Value("${hdfs.path}")
     private String path;
     @Value("${hdfs.username}")
@@ -45,7 +47,7 @@ public class HDFSService {
 
     private static Configuration getConfiguration() {
         Configuration configuration = new Configuration();
-        configuration.set("fs.defaultFS", this.defaultHdfsUri);
+        configuration.set("fs.defaultFS", defaultHdfsUri);
         return configuration;
     }
 
@@ -73,9 +75,10 @@ public class HDFSService {
      * @return
      */
     public static FileSystem getFileSystem(){
-        FileSystem fileSystem = null;
         try {
-            fileSystem = FileSystem.get(new URI(hdfsPath),getConfiguration(),hdfsPath);
+            if(null == fileSystem){
+                fileSystem = FileSystem.get(new URI(hdfsPath),getConfiguration(),hdfsPath);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -174,6 +177,29 @@ public class HDFSService {
 
     /**
      * 创建文件
+     * @param fileName 文件名及路径
+     * @param content 内容
+     */
+    public static void createFile(String fileName,String content){
+        FileSystem fileSystem = getFileSystem();
+        Path newPath = new Path(fileName);
+        FSDataOutputStream fos = null;
+        try {
+            fos =fileSystem.create(newPath);
+            fos.write(content.getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 创建文件
      * @param path
      * @param file
      */
@@ -193,6 +219,22 @@ public class HDFSService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    /**
+     * 上传文件
+     * @param srcPath
+     * @param dstPath
+     */
+    public static void uploadFile(String srcPath,String dstPath){
+        Path oldPath = new Path(srcPath);
+        Path newPath = new Path(dstPath);
+        FileSystem fileSystem = getFileSystem();
+        try {
+            fileSystem.copyFromLocalFile(oldPath,newPath);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

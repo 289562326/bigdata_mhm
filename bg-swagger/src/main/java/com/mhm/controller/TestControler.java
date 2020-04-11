@@ -1,6 +1,8 @@
 package com.mhm.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.mhm.utils.SSLUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpEntity;
@@ -15,16 +17,19 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by MaHuiming on 2019/6/12.
+ * Created by MHm on 2019/6/12.
  */
 @Api(tags = "debug")
 @RestController
 @RequestMapping(value = "/debug")
 public class TestControler {
+    private static final String FETCH_PROJECT_FLOWS = "{0}/manager?ajax=fetchprojectflows&session.id={1}&project={2}";
 
     @ApiOperation(value = "debug")
     @RequestMapping()
@@ -41,6 +46,38 @@ public class TestControler {
         RestTemplate restTemplate = new RestTemplate();
         String rest = restTemplate.getForObject("http://122.112.200.204:18000/ycloud-oauth/oauth/authorize?response_type=token&scope=&client_id=yyc_ycloud-admin&redirect_uri=http://localhost:8080/debug/login/#/&state=e5dae6fd-cf6e-418b-9de7-466fa6f0e562",String.class);
         return "redirect:"+rest;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/azkaban")
+    public String azkaban(HttpServletRequest request) {
+        //从请求头中取出token
+        RestTemplate restTemplate = new RestTemplate();
+
+        try {
+            SSLUtil.turnOffSslChecking();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
+        }
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+        headers.add("X-Requested-With", "XMLHttpRequest");
+        LinkedMultiValueMap<String,String> linkedMultiValueMap = new LinkedMultiValueMap<String, String>();
+        linkedMultiValueMap.add("action", "login");
+        linkedMultiValueMap.add("username", "azkaban");
+        linkedMultiValueMap.add("password", "azkaban");
+        HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(linkedMultiValueMap, headers);
+
+
+        String rest = restTemplate.postForObject("http://192.168.0.197:8081",httpEntity,String.class);
+        JSONObject jsonObject = JSON.parseObject(rest);
+        String sessionId = jsonObject.getString("session.id");
+        String projectName = null;
+        String projects = restTemplate.getForObject("http://192.168.0.197:8081/index?all&session.id="+sessionId,String.class);
+
+        return projects;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/login")

@@ -6,7 +6,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by MaHuiming on 2019/8/3.
+ * Created by MHm on 2019/8/3.
  */
 @Component
 public class EurekaStateChangeListener {

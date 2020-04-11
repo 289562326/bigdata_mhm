@@ -1,9 +1,7 @@
 package com.mhm.netty.server;
 
 import com.example.demo.KafkaServer;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.*;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
@@ -12,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by MaHuiming on 2019/7/31.
+ * Created by MHm on 2019/7/31.
  */
 public class ServerHandler extends ChannelInboundHandlerAdapter { //implements ChannelOutboundHandler
     private static ChannelGroup channels = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
@@ -50,6 +48,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter { //implements C
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         System.out.println("read complete");
 //        ctx.pipeline().channel().writeAndFlush("OK");
+
     }
 
     @Override
@@ -86,6 +85,20 @@ public class ServerHandler extends ChannelInboundHandlerAdapter { //implements C
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
+
+//        Channel c = ctx.channel();
+//        c.close().addListener(new ChannelFutureListener() {
+//            @Override
+//            public void operationComplete(ChannelFuture future) throws Exception {
+//                if (future.isSuccess()){
+//                    channels.remove(future.channel());
+//                    System.out.println(ctx.channel().id() + " left ," + "Online: " + channels.size());
+//                }
+//                else{
+//                    System.out.println("FAILED to close channel");
+//                }
+//            }
+//        });
         ctx.close();
     }
 

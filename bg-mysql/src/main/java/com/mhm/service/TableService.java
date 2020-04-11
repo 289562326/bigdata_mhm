@@ -12,7 +12,7 @@ import java.util.Map;
 
 /**
  * 通用表查询
- * Created by MaHuiming on 2019/7/3.
+ * Created by MHm on 2019/7/3.
  */
 @Service
 public class TableService {

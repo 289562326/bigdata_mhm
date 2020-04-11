@@ -12,7 +12,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * Spring Security配置
- * Created by MaHuiming on 2019/6/26.
+ * Created by MHm on 2019/6/26.
  */
 @Configuration
 @EnableWebSecurity

@@ -1,4 +1,4 @@
-package com.mhm;
+package com.mhm.utils;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * Created by MaHuiming on 2019/6/13.
+ * Created by MHm on 2019/6/13.
  */
 public class GenerateMeteScript {
 

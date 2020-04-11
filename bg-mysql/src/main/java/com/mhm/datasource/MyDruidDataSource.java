@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * Created by MaHuiming on 2019/6/12.
+ * Created by MHm on 2019/6/12.
  */
 @Configuration
 @MapperScan(basePackages = {"com.mhm.**.dao"}, sqlSessionTemplateRef = "baseSqlSessionTemplate")
@@ -46,8 +46,8 @@ public class MyDruidDataSource {
         ServletRegistrationBean<StatViewServlet> bean =
         new ServletRegistrationBean<>(new StatViewServlet(), "/druid/*");
         Map<String, String> initParms = new HashMap<>(3);
-        initParms.put("loginUsername", "znvr");
-        initParms.put("loginPassword", "zxm10");
+        initParms.put("loginUsername", "root");
+        initParms.put("loginPassword", "888888");
         //允许访问,默认所有的
         initParms.put("allow", "");
         bean.setInitParameters(initParms);

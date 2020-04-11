@@ -1,7 +1,7 @@
 package com.mhm.entity;
 
 /**
- * Created by MaHuiming on 2020-4-4.
+ * Created by MHm on 2020-4-4.
  */
 public enum ResultCodeEnum {
 

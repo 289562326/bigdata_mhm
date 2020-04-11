@@ -13,7 +13,8 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by MaHuiming on 2019/8/26.
+ * HTTP连接池
+ * Created by MHm on 2019/8/26.
  */
 @Configuration
 public class HttpPool {

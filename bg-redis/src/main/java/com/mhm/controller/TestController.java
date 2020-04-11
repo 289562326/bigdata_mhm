@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Created by MaHuiming on 2019/6/14.
+ * Created by MHm on 2019/6/14.
  */
 @org.springframework.web.bind.annotation.RestController
 public class TestController {
