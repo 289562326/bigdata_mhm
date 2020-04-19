@@ -2,8 +2,14 @@
 ##
 实现原理
 - FeignClientsRegistrar.java
+
 - ReflectiveFeign.java
-- SynchronousMethodHandler
+反射、动态代理
+- SynchronousMethodHandler.java
+
+
+
+
 
 ### 一、服务调用
 

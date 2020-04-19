@@ -19,6 +19,7 @@
         <module>bg-cloud-zuul</module>
         <module>bg-actuator</module>
         <module>bg-admin</module>
+        <module>bg-designPattern</module>
         <module>bg-auth</module>
         <module>bg-hdfs</module>
         <module>bg-jwt</module>

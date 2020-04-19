@@ -1,0 +1,18 @@
+@startuml
+
+
+interface AccessMode
+
+AccessMode <|.. IEC104Mode
+AccessMode <|.. MqttMode
+
+interface AccessMode {
+start()
+end()
+}
+class SimpleFactory{
+ AccessMode getMode(String type)
+}
+SimpleFactory --> AccessMode
+
+@enduml
