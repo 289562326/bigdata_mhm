@@ -10,6 +10,11 @@ package com.mhm.create.factoryMethod.simpleFactory;
  */
 public class SimpleFactory {
 
+    /**
+     * 违反了开闭原则，每增加一种类型，此处就要修改代码
+     * @param type
+     * @return
+     */
     public AccessMode getMode(String type){
         switch (type.toUpperCase()){
             case "IEC104":

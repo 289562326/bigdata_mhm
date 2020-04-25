@@ -1,0 +1,23 @@
+@startuml
+
+IState <|.. StartState
+IState <|.. StopState
+
+StateContext --> IState
+interface IState{
+    +action(StateContext stateContext)
+}
+
+class StartState {
+    +action(StateContext stateContext)
+}
+class StopState {
+    +action(StateContext stateContext)
+}
+class StateContext {
+    -IState state
+    +StateContext()
+    +getState()
+    +setState(IState istate);
+}
+@enduml

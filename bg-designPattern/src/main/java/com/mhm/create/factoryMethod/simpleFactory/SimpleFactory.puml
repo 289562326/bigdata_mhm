@@ -6,13 +6,24 @@ interface AccessMode
 AccessMode <|.. IEC104Mode
 AccessMode <|.. MqttMode
 
-interface AccessMode {
-start()
-end()
-}
+
 class SimpleFactory{
- AccessMode getMode(String type)
+ +AccessMode getMode(String type)
 }
 SimpleFactory --> AccessMode
 
+interface AccessMode {
++start():boolean
++end():boolean
+}
+
+class IEC104Mode{
++start():boolean
++end():boolean
+}
+
+class MqttMode{
++start():boolean
++end():boolean
+}
 @enduml

@@ -1,4 +1,4 @@
-package com.mhm.netty4.server;
+package com.mhm.netty4.client;
 
 /**
  * 服务端管理所有的客户端

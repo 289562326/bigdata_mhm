@@ -7,6 +7,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.net.InetSocketAddress;
 
@@ -31,13 +32,17 @@ public class NettyServer implements IServer {
 
     @Value("${netty.nPort}")
     private int nPort;
+    //可以根据机器核心*2设置
+    private static final int BOSS_GROUP_SIZE = Runtime.getRuntime().availableProcessors() * 2;
+    private static final int WORKER_THREAD_SIZE = 4;
+    private final EventLoopGroup bossGroup = new NioEventLoopGroup(BOSS_GROUP_SIZE);
+    private final EventLoopGroup workerGroup = new NioEventLoopGroup(WORKER_THREAD_SIZE);
 
     private ServerManager serverManager;
-    //logger
-    private void start(InetSocketAddress address) {
+
+    @Override
+    public void init(InetSocketAddress address) {
         //多线程模式处理
-        EventLoopGroup bossGroup = new NioEventLoopGroup(1);//可以根据机器核心*2设置
-        EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap bootstrap = new ServerBootstrap().group(bossGroup, workerGroup)
             //指定通道类型为NioServerSocketChannel,一种异步模式
@@ -54,23 +59,43 @@ public class NettyServer implements IServer {
             .option(ChannelOption.RCVBUF_ALLOCATOR, AdaptiveRecvByteBufAllocator.DEFAULT);
             ChannelFuture future = null;
             // 绑定端口，开始接收进来的连接
-            if(isMuiltPort()){
+            if (isMuiltPort()) {
                 for (int i = 0; i < nPort; i++) {
                     int port = beginPort + i;
                     future = bootstrap.bind(port).sync();
-                    log.info("Server start listen at " + address.getHostString() + ":" + port);
-                }
-            }else{
+                    ChannelFuture channelFuture = future.addListener(new ChannelFutureListener() {
+                        public void operationComplete(ChannelFuture future) throws Exception {
+                            if (future.isSuccess()) {
+                                log.info("Server start listen at " + address.getHostString() + ":" + port);
+                            } else {
+                                log.info("Server failed listen at " + address.getHostString() + ":" + port);
+                                throw new Exception("Server start fail !", future.cause());
+                            }
+                        }
+                    });
 
+                }
+            } else {
                 future = bootstrap.bind(address).sync();
-                log.info("Server start listen at " + address.getHostString() + ":" + address.getPort());
+                ChannelFuture channelFuture = future.addListener(new ChannelFutureListener() {
+                    public void operationComplete(ChannelFuture future) throws Exception {
+                        if (future.isSuccess()) {
+                            log.info("Server start listen at " + address.getHostString() + ":" + address.getPort());
+                        } else {
+                            log.info("Server start listen at " + address.getHostString() + ":" + address.getPort());
+                            throw new Exception("Server start fail !", future.cause());
+                        }
+                    }
+                });
+
             }
+            //
             future.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
-        }finally {
+        } finally {
             try {
                 bossGroup.shutdownGracefully().sync(); ////关闭EventLoopGroup，释放掉所有资源包括创建的线程
             } catch (InterruptedException e) {
@@ -80,24 +105,24 @@ public class NettyServer implements IServer {
     }
 
     @Override
-    public void init() {
-
-    }
-
-    @Override
     public void start() {
-        InetSocketAddress address = new InetSocketAddress(ip, port);
-        start(address);
+        InetSocketAddress address = null;
+        if (StringUtils.isEmpty(ip)) {
+            address = new InetSocketAddress(ip, port);
+        } else {
+            address = new InetSocketAddress(port);
+        }
+        init(address);
     }
 
     @Override
     public void stop() {
-
-    }
-
-    @Override
-    public void restart() {
-
+        try {
+            bossGroup.shutdownGracefully().sync(); //关闭EventLoopGroup，释放掉所有资源包括创建的线程
+            workerGroup.shutdownGracefully().sync();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean isMuiltPort() {

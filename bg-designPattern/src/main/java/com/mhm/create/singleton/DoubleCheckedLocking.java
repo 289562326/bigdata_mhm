@@ -14,7 +14,7 @@ public class DoubleCheckedLocking {
     }
 
     /**
-     * 双检锁，高性能？
+     * 双检锁，高性能
      * @return
      */
     public static DoubleCheckedLocking getInstance(){

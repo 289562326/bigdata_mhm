@@ -1,0 +1,21 @@
+@startuml
+
+Component <|.. Composite
+Component <|.. Leaf
+interface Component{
+    +add(Component c):void
+    +remove(Component c):void
+    +getChildren(int index):Component
+    +operation():void
+}
+
+class Composite {
+    -List<Component> list;
+    +operation(for...):void
+}
+
+class Leaf{
+    operation():void
+}
+
+@enduml

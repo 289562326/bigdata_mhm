@@ -2,6 +2,8 @@ package com.mhm.struct.decorator;
 
 /**
  * 具体装饰者，与代理模式的区别在于，此处可以实现多个装饰
+ * 装饰模式应该为所装饰的对象增强功能；代理模式对代理的对象施加控制，但不对对象本身的功能进行增强。
+ * 装饰模式是对功能的增强
  * @author MHm
  * @date 2020-4-19 14:01
  */
@@ -23,14 +25,7 @@ public class ConcreteDecorator extends  Decorator{
         this.method();
     }
 
-    public static void main(String[] args) {
-        DecoratorComponent decoratorComponent = new ConcreteDecoratorComponent();
-        //第一次装饰
-        decoratorComponent = new ConcreteDecorator(decoratorComponent);
-        //第二次被装饰
-        decoratorComponent = new ConcreteDecorator2(decoratorComponent);
-        decoratorComponent.opreate();
-    }
+
 }
 class ConcreteDecorator2 extends  Decorator {
     public ConcreteDecorator2(DecoratorComponent decoratorComponent) {

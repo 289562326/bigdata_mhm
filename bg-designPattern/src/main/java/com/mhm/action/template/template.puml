@@ -1,0 +1,22 @@
+@startuml
+
+
+
+Template <|-- TemplateImpl
+
+abstract class Template{
+    +init();
+    +preDO();
+    +postDo();
+    +request()
+}
+
+class TemplateImpl {
+    +init();
+    +preDO();
+    +postDo();
+
+}
+
+
+@enduml

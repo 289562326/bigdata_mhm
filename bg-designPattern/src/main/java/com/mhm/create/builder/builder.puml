@@ -1,0 +1,37 @@
+@startuml
+
+Builder <|-- ConcreteBuilder
+Builder o-- Director
+Director o-- BuilderProduct
+
+
+class Builder {
+#builderProduct:BuilderProduct
++getProduct():BuilderProduct
++buildPartA():void
++buildPartB():void
++buildPartC():void
+}
+class ConcreteBuilder {
++buildPartA():void
++buildPartB():void
++buildPartC():void
+}
+
+class BuilderProduct {
+-partA:String
+-partB:String
+-partC:String
++setPartA():void
++setPartB():void
++setPartC():void
++show()
+}
+
+class Director {
+-builder:Builder
++Director(Builder)
++construct():BuilderProduct
+
+}
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+
+Visitor <|.. AVisitor
+Visitor <|.. BVisitor
+Subject <|.. MySubject
+
+interface Visitor{
+    +visitor(Subject subject)
+}
+interface Subject{
+    +accept(Visitor visitor)
+}
+
+class MySubject {
+    +accept(Visitor visitor)
+    +getFeild()
+}
+class AVisitor {
+    +visitor(Subject subject)
+}
+
+class BVisitor {
+   +visitor(Subject subject)
+}
+
+@enduml

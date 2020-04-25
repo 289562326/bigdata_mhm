@@ -1,0 +1,24 @@
+@startuml
+
+Subject <|.. RealSubject
+Subject <|..Proxy
+RealSubject <-- Proxy
+
+
+interface Subject{
+    action():void
+}
+
+class RealSubject{
+    action():void
+}
+
+class Proxy {
+    action():void
+    preAction():void
+    postAction():void
+}
+
+
+
+@enduml

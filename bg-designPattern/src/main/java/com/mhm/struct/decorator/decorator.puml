@@ -1,0 +1,29 @@
+@startuml
+
+DecoratorComponent <|-- Decorator
+DecoratorComponent o-- Decorator
+Decorator <|-- ConcreteDecorator
+Decorator <|-- ConcreteDecorator2
+DecoratorComponent <|-- ConcreteDecoratorComponent
+abstract class Decorator{
+    Decorator(DecoratorComponent decoratorComponent)
+    +opreate()
+}
+abstract class DecoratorComponent{
+    +opreate()
+}
+
+
+class ConcreteDecoratorComponent {
+    +opreate():void
+}
+class ConcreteDecorator {
+    +opreate():void
+}
+
+class ConcreteDecorator2 {
+    +opreate():void
+}
+
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+
+Prototype <|-- ClonePrototype
+class Prototype {
++clone():Prototype
+}
+
+class ClonePrototype {
++clone():ClonePrototype
+}
+
+
+
+@enduml

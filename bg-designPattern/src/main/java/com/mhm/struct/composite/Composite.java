@@ -5,10 +5,16 @@ import java.util.List;
 
 /**
  * 组合模型
+ * 优点：
+ * 缺点：使用组合模式时，其叶子和树枝的声明都是实现类，而不是接口，违反了依赖倒转原则
+ *
  * @author MHm
  * @date 2020-4-19 13:15
  */
 public class Composite implements Component{
+    /**
+     * 树枝内部组合该接口，并且含有内部属性 List，里面放 Component。
+     */
     private List<Component> list = new ArrayList<Component>();
     @Override
     public void add(Component c) {
@@ -24,6 +30,7 @@ public class Composite implements Component{
     public Component getChildren(int index) {
         return list.get(index);
     }
+
 
     @Override
     public void operation() {

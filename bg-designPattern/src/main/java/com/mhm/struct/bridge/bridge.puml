@@ -1,0 +1,25 @@
+@startuml
+
+Implementor <|.. ConcreteImpl
+Abstraction <|-- RefinedAbstraction
+Implementor o-- Abstraction
+
+interface Implementor{
+   start()
+    stop()
+}
+
+abstract class Abstraction {
+    Abstraction(Implementor implementor)
+}
+
+class ConcreteImpl{
+    start()
+    stop()
+}
+
+class RefinedAbstraction{
+     RefinedAbstraction(Implementor implementor)
+     method():void
+}
+@enduml

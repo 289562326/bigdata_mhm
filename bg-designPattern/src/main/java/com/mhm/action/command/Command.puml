@@ -1,0 +1,19 @@
+@startuml
+
+Command <|.. ConcreteCommand
+Receiver <-- ConcreteCommand
+
+interface Command{
+    excute()
+}
+
+
+class ConcreteCommand {
+    -Receiver receiver
+    +excute();
+}
+
+class Receiver{
+    +action();
+}
+@enduml

@@ -1,0 +1,65 @@
+@startuml
+
+Deployment <|.. CacheDeployment
+Deployment <|.. RDBMSDeployment
+
+RDBMSDeployment<|-- DDM
+RDBMSDeployment<|-- Mysql
+CacheDeployment <|-- Ecache
+CacheDeployment <|-- MemmCached
+
+AbstractFactory <|.. ClusterFactory
+AbstractFactory <|.. StandAloneFactory
+
+class StandAloneFactory{
++createCache(String name):CacheDeployment
++createRDBMS(String name):RDBMSDeployment
+
+}
+class ClusterFactory{
++createCache(String name):CacheDeployment
++createRDBMS(String name):RDBMSDeployment
+
+}
+
+interface AbstractFactory {
++createCache(String name):CacheDeployment
++createRDBMS(String name):RDBMSDeployment
+}
+
+class CacheDeployment{
++getDeploy():void
+}
+class RDBMSDeployment{
++getDeploy():void
+}
+
+class DDM{
++deplay():void
++getDeploy():void
+}
+
+class Mysql{
++deplay():void
++getDeploy():void
+}
+
+class MemmCached{
++deplay():void
++getDeploy():void
+}
+
+class Ecache{
++deplay():void
++getDeploy():void
+}
+
+interface Deployment{
++deplay():void
+}
+
+class AbstractFactoryClient{
++main():void
+}
+
+@enduml

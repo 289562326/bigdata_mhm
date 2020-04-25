@@ -1,0 +1,14 @@
+@startuml
+
+Facade o-- Module
+
+class Facade {
+    -Module module
+    +doSomething()
+}
+
+class Module{
+    +method()
+}
+
+@enduml

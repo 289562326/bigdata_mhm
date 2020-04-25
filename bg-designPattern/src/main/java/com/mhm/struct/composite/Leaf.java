@@ -1,6 +1,7 @@
 package com.mhm.struct.composite;
 
 /**
+ * 树状节点
  * @author MHm
  * @date 2020-4-19 13:14
  */
