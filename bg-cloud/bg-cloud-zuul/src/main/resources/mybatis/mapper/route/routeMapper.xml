@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhm.dao.RouteDao">
+
+    <resultMap id="BaseResultMap" type="com.mhm.entity.Route">
+        <id column="route_id" jdbcType="BIGINT" property="routeId"/>
+        <result column="service_id" jdbcType="VARCHAR" property="serviceId"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="strip_prefix" jdbcType="VARCHAR" property="stripPrefix"/>
+        <result column="retry_able" jdbcType="INTEGER" property="retryAble"/>
+        <result column="api_name" jdbcType="VARCHAR" property="apiName"/>
+        <result column="enabled" jdbcType="INTEGER" property="enabled"/>
+        <result column="path" jdbcType="VARCHAR" property="path"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select route_id, service_id, url, strip_prefix, retry_able, api_name, enabled, path
+        from sys_route where enabled =1
+    </select>
+
+</mapper>

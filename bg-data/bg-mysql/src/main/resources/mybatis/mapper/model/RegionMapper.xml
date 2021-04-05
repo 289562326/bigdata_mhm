@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhm.model.dao.RegionDao">
+  <resultMap id="BaseResultMap" type="com.mhm.model.entity.Region">
+    <id column="region_id" jdbcType="BIGINT" property="regionId" />
+    <result column="region_name" jdbcType="VARCHAR" property="regionName" />
+    <result column="up_region_id" jdbcType="BIGINT" property="upRegionId" />
+    <result column="model_id" jdbcType="BIGINT" property="modelId" />
+    <result column="project_id" jdbcType="BIGINT" property="projectId" />
+    <result column="sort" jdbcType="SMALLINT" property="sort" />
+    <result column="region_level" jdbcType="TINYINT" property="regionLevel" />
+    <result column="state" jdbcType="TINYINT" property="state" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_cfg_region
+    where region_id = #{regionId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mhm.model.entity.Region">
+   insert into t_cfg_region (region_id, region_name, up_region_id,
+      model_id, project_id, sort,
+      region_level, state, path,
+      user_id, user_name, create_time,
+      update_time, remark)
+    values (#{regionId,jdbcType=BIGINT}, #{regionName,jdbcType=VARCHAR}, #{upRegionId,jdbcType=BIGINT},
+      #{modelId,jdbcType=BIGINT}, #{projectId,jdbcType=BIGINT}, #{sort,jdbcType=SMALLINT},
+      #{regionLevel,jdbcType=TINYINT}, #{state,jdbcType=TINYINT}, #{path,jdbcType=VARCHAR},
+      #{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{updateTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.mhm.model.entity.Region">
+    update t_cfg_region
+    set region_id = #{record.regionId,jdbcType=BIGINT},
+      region_name = #{record.regionName,jdbcType=VARCHAR},
+      up_region_id = #{record.upRegionId,jdbcType=BIGINT},
+      model_id = #{record.modelId,jdbcType=BIGINT},
+      project_id = #{record.projectId,jdbcType=BIGINT},
+      sort = #{record.sort,jdbcType=SMALLINT},
+      region_level = #{record.regionLevel,jdbcType=TINYINT},
+      state = #{record.state,jdbcType=TINYINT},
+      path = #{record.path,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      remark = #{record.remark,jdbcType=VARCHAR}
+    where region_id = #{regionId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select region_id, region_name, up_region_id,
+      model_id, project_id, sort,
+      region_level, state, path,
+      user_id, user_name, create_time,
+      update_time, remark
+    from t_cfg_region
+    where region_id = #{regionId,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select region_id, region_name, up_region_id,
+      model_id, project_id, sort,
+      region_level, state, path,
+      user_id, user_name, create_time,
+      update_time, remark
+    from t_cfg_region
+  </select>
+
+  <insert id="batchInsert">
+    insert into t_cfg_region(region_id, region_name, up_region_id,
+    model_id, project_id, sort,
+    region_level, state, path,
+    user_id, user_name, create_time,
+    update_time, remark)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.regionId,jdbcType=BIGINT}, #{item.regionName,jdbcType=VARCHAR}, #{item.upRegionId,jdbcType=BIGINT},
+      #{item.modelId,jdbcType=BIGINT}, #{item.projectId,jdbcType=BIGINT}, #{item.sort,jdbcType=SMALLINT},
+      #{item.regionLevel,jdbcType=TINYINT}, #{item.state,jdbcType=TINYINT}, #{item.path,jdbcType=VARCHAR},
+      #{item.userId,jdbcType=BIGINT}, #{item.userName,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP},
+      #{item.updateTime,jdbcType=TIMESTAMP}, #{item.remark,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+</mapper>

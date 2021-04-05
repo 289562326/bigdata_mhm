@@ -1,0 +1,31 @@
+@startuml
+
+Aggregate <|..ConcreteAggregate
+Iterator <|.. ConcreteIterator
+ConcreteIterator *-- ConcreteAggregate
+
+
+
+interface Aggregate{
+    +add(Object obj):void
+    +remove(Object obj):void
+    +getIterator():Iterator
+}
+interface Iterator{
+    +first():Object
+    +next():Object
+    +hasNext():boolean
+}
+
+class ConcreteIterator {
+     +first():Object
+     +next():Object
+     +hasNext():boolean
+}
+class ConcreteAggregate {
+    +add(Object obj):void
+    +remove(Object obj):void
+    +getIterator():Iterator
+}
+
+@enduml

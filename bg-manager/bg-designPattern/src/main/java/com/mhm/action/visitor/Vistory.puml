@@ -1,0 +1,35 @@
+@startuml
+
+Visitor <|.. AVisitor
+Visitor <|.. BVisitor
+Element <|.. ConcreteElement
+Visitor  o.. Element
+ObjectStructure --o Element
+ObjectStructure -- Visitor
+
+interface Visitor{
+    +visitor(Subject subject)
+}
+interface Element{
+    +accept(Visitor visitor)
+}
+
+class ConcreteElement {
+    +accept(Visitor visitor)
+    +getFeild()
+}
+class AVisitor {
+    +visitor(Subject subject)
+}
+
+class BVisitor {
+   +visitor(Subject subject)
+}
+class ObjectStructure {
+    -List<Element> elements
+   +add(Element element)
+   +accept(Visitor visitor)
+
+}
+
+@enduml

@@ -6,35 +6,23 @@
 
     <groupId>com.mhm</groupId>
     <artifactId>bigdata_mhm</artifactId>
-    <version>1.0</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
     <modules>
-        <module>bg-cloud-center</module>
-        <module>bg-cloud-config-client</module>
-        <module>bg-cloud-config-server</module>
-        <module>bg-cloud-feign-server</module>
-        <module>bg-cloud-gateway</module>
-        <module>bg-cloud-hystrix</module>
-        <module>bg-cloud-ribbon</module>
-        <module>bg-cloud-zuul</module>
-        <module>bg-actuator</module>
-        <module>bg-admin</module>
-        <module>bg-designPattern</module>
-        <module>bg-auth</module>
-        <module>bg-hdfs</module>
-        <module>bg-jwt</module>
-        <module>bg-mysql</module>
-        <module>bg-netty4</module>
-        <module>bg-redis</module>
-        <module>bg-security</module>
-        <module>bg-springdatarest</module>
-        <module>bg-swagger</module>
+        <module>bg-cloud</module>
+        <module>bg-manager</module>
+        <module>bg-data</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <fastjson.version>1.2.60</fastjson.version>
+        <spring-boot.version>2.0.5.RELEASE</spring-boot.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <sleuth.version>2.0.0.RELEASE</sleuth.version>
     </properties>
@@ -42,44 +30,9 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <version>2.0.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-sleuth</artifactId>
-                <version>${sleuth.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.2.47</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <distributionManagement>
-    </distributionManagement>
 
 </project>

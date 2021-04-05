@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: bg-clould-center
+server:
+  port: 8761
+
+eureka:
+  server:
+    #默认开启自我保护,调试是可以关闭，短时间内丢失过多客户端时，会进入自我保护模式，就会保护服务注册表中的信息，不再删除服务注册表中的数据，当网络故障恢复后,自动退出自我保护
+    enable-self-preservation: true
+    #清除无效服务实例的时间间隔，默认1分钟
+    eviction-interval-timer-in-ms: 60000
+    #是否启用限流,默认false
+    rate-limiter-enabled: false
+    #服务注册与拉取的平均速率
+    rate-limiter-registry-fetch-average-rate: 500
+    #15分钟内续约服务的比例小于0.85，则开启自我保护机制，再此期间不会清除已注册的任何服务（即便是无效服务）
+    renewal-percent-threshold: 0.85
+  instance:
+    #将IP注册到Eureka Server上，false就是机器的主机名
+    prefer-ip-address: true
+    #应用自定义信息
+    status-page-url-path: /actuator/info
+    #健康检查的url
+    health-check-url-path: /actuator/health
+    #主机名
+    hostname: bg-center
+    #表示eureka client发送心跳给server端的频率。如果在leaseExpirationDurationInSeconds后，server端没有收到client的心跳，则将摘除该instance
+    lease-renewal-interval-in-seconds: 5
+    #表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance
+    lease-expiration-duration-in-seconds: 10
+  client:
+    #是否注册到注册中心
+    register-with-eureka: false
+    #是否从注册中心拉取注册服务列表,为true时，可以启动，但报异常：Cannot execute request on any known server
+    fetch-registry: false
+    #默认的注册中心地址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+
+#actuator加载所有的端点，默认只加载了 info / health
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+#开启eureka负载均衡策略
+ribbon:
+  eureka:
+    enabled: true

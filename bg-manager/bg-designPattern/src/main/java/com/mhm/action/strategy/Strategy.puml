@@ -1,0 +1,31 @@
+@startuml
+
+IStrategy <|.. CashNormal
+IStrategy <|.. CashRebate
+IStrategy <|.. CashReturn
+IStrategy o--  Context
+
+interface IStrategy{
+    +cash(double money):void
+}
+
+class Context {
+    -IStrategy strategy
+    +Context(IStrategy strategy)
+    +Context(String type)
+    +sale(double money):double
+}
+
+class CashNormal {
+    +cash(double money):void
+}
+
+class CashRebate {
+    +cash(double money):void
+}
+
+class CashReturn {
+    +cash(double money):void
+}
+
+@enduml

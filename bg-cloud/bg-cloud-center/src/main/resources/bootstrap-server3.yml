@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: bg-clould-center
+server:
+  port: 38761
+
+eureka:
+  server:
+    #关闭自我保护
+    enable-self-preservation: true
+    #清理间隔
+    eviction-interval-timer-in-ms: 60000
+  instance:
+    #注册中心使用的是域名，此处关闭。将IP注册到Eureka Server上，false就是机器的主机名
+    prefer-ip-address: false
+    #应用自定义信息
+    status-page-url-path: /actuator/info
+    #健康检查的url
+    health-check-url-path: /actuator/health
+    hostname: bg-center3
+    #表示eureka client发送心跳给server端的频率。如果在leaseExpirationDurationInSeconds后，server端没有收到client的心跳，则将摘除该instance
+    lease-renewal-interval-in-seconds: 5
+    #表示eureka server至上一次收到client的心跳之后，等待下一次心跳的超时时间，在这个时间内若没收到下一次心跳，则将移除该instance
+    lease-expiration-duration-in-seconds: 10
+  client:
+    #是否注册到注册中心，高可用设置为true
+    register-with-eureka: true
+    #是否从注册中心拉取注册服务列表,为true时，可以启动，但报异常：Cannot execute request on any known server
+    fetch-registry: true
+    #默认的注册中心地址
+    service-url:
+      defaultZone: http://bg-center1:18761/eureka/,http://bg-center2:28761/eureka/,http://bg-center3:38761/eureka/
+
+#actuator加载所有的端点/默认只加载了 info / health
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+#开启eureka负载均衡策略
+ribbon:
+  eureka:
+    enabled: true

@@ -1,0 +1,47 @@
+@startuml
+Expression <|-- Add
+Expression <|-- Division
+Expression <|-- Multiply
+Expression <|-- Substract
+Expression <|-- Variable
+
+ExpressionContext *-- Expression
+
+class Expression {
+    interpret(ExpressionContext expressionContext):int
+}
+
+class ExpressionContext {
+    -Map valueMap
+    +addValue(Variable x , int y)
+    +lookupValue(Variable x)
+}
+
+class Variable {
+
+}
+class Add {
+    -Expression left ,right
+    +Add(Expression left , Expression right)
+    +interpret(ExpressionContext expressionContext):int
+}
+
+class Division {
+    -Expression left ,right
+    +Division(Expression left , Expression right)
+    +interpret(ExpressionContext expressionContext):int
+}
+class Multiply {
+    -Expression left ,right
+    +Multiply(Expression left , Expression right)
+    +interpret(ExpressionContext expressionContext):int
+}
+
+class Substract {
+    -Expression left ,right
+    +Substract(Expression left , Expression right)
+    +interpret(ExpressionContext expressionContext):int
+}
+
+
+@enduml

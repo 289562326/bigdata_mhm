@@ -1,0 +1,26 @@
+@startuml
+
+
+Observer <|.. ConcreteObserver
+Observer <-- PropertiesSubject
+PropertiesSubject <|-- ServerSubject
+class Observer{
+    +update()
+}
+
+class ConcreteObserver{
+    +update()
+}
+
+abstract class PropertiesSubject{
+    -Vector<Observer> map
+    +addObserver(Observer observer)
+    +deleteObserver(Observer observer)
+    +notifyObservers();
+}
+
+abstract class ServerSubject{
+   +modifyProperties():void
+}
+
+@enduml

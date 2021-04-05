@@ -1,0 +1,24 @@
+@startuml
+
+Command <|.. ConcreteCommand
+Receiver <-- ConcreteCommand
+Command <-- Invoker
+class Invoker{
+    -Command command;
+    +Invoker(Command command);
+    +call()
+}
+interface Command{
+    +excute()
+}
+
+
+class ConcreteCommand {
+    -Receiver receiver
+    +excute();
+}
+
+class Receiver{
+    +action();
+}
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+
+Mediator <|.. ConcreteMediator
+Colleague <|-- AColleague
+Colleague <|-- BColleague
+Colleague --> Mediator
+
+interface Mediator{
+    +register(Colleague colleague):void
+    +dispath(Colleague colleague):void
+}
+
+class AColleague {
+    +receive():void
+    +send():void
+}
+class BColleague {
+    +receive():void
+    +send():void
+}
+abstract class Colleague {
+    #Mediator mediator
+    +setMediator(Mediator mediator)
+
+    +receive():void
+    +send():void
+}
+
+class ConcreteMediator {
+
+}
+@enduml

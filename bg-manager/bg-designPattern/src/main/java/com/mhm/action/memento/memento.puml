@@ -1,0 +1,24 @@
+@startuml
+
+Memento o-- Caretaker
+Memento <-- Originator
+class Memento {
+    -String state
+    +Memento(String state)
+    +getState()
+    +setState(String state)
+}
+class Caretaker {
+    -Memento memento
+    +setMemento(Memento memento)
+    +getMemento()
+}
+class Originator {
+    -String state
+    +create():Memento
+    +restore():Memento
+    getState():String
+    getState(String state)
+}
+
+@enduml
