@@ -2,6 +2,7 @@ package com.mhm.action.command;
 
 /**
  * 调用者
+ *
  * @author MHm
  * @date 2020-4-26 10:25
  */
@@ -12,7 +13,7 @@ public class Invoker {
         this.command = command;
     }
 
-    public void call(){
+    public void call() {
         command.excute();
     }
 

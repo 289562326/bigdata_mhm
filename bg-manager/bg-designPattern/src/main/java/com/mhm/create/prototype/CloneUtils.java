@@ -10,7 +10,7 @@ import java.util.Collection;
  * @Description: ${todo}
  * @date 2020-4-14 21:48
  */
-public class CloneUtils implements Serializable,Cloneable{
+public class CloneUtils implements Serializable, Cloneable {
 
     /**
      * 对象序列化的深拷贝
@@ -29,7 +29,7 @@ public class CloneUtils implements Serializable,Cloneable{
             oos.writeObject(obj);
             oos.flush();
             oos.close();
-            
+
             ois = new ObjectInputStream(new ByteArrayInputStream(bos.toByteArray()));
             cloneObj = ois.readObject();
             ois.close();

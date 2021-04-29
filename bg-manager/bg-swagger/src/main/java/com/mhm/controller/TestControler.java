@@ -16,9 +16,9 @@ public class TestControler {
 
     @ApiOperation(value = "debug")
     @RequestMapping()
-    public String test(@RequestParam(value="name") String name) {
+    public String test(@RequestParam(value = "name") String name) {
         //从请求头中取出token
-        return "hello:"+name;
+        return "hello:" + name;
     }
 
 }

@@ -6,7 +6,7 @@ package com.mhm.struct.proxy;
  * @author Mhm
  * @date 2020-4-18 15:12
  */
-public class Proxy implements Subject{
+public class Proxy implements Subject {
     //如果我们这个地方代理的是接口会怎么样？动态代理
     private Subject realSubject;
 
@@ -23,13 +23,12 @@ public class Proxy implements Subject{
         postAction();
     }
 
-    public void preAction(){
+    public void preAction() {
         System.out.println("pre filter before action");
     }
 
-    public void postAction(){
+    public void postAction() {
         System.out.println("post filter before action");
     }
-
 
 }

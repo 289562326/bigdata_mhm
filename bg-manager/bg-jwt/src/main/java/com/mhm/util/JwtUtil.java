@@ -15,13 +15,17 @@ import java.util.Map;
  */
 public class JwtUtil {
 
-    /** token秘钥, 解密用户 */
+    /**
+     * token秘钥, 解密用户
+     */
     public static final String SECRET = "asdfghjkl";
-    /** token 过期时间: 60s */
+    /**
+     * token 过期时间: 60s
+     */
     public static final int calendarField = Calendar.SECOND;
     public static final int calendarInterval = 600;
 
-    public static String createToken(String appkey){
+    public static String createToken(String appkey) {
         Date now = new Date();
         Calendar nowTime = Calendar.getInstance();
         nowTime.add(calendarField, calendarInterval);
@@ -38,21 +42,20 @@ public class JwtUtil {
         return token;
     }
 
-//    public static Map<String,Claim> varifyToken(String token){
-//        JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
-//        DecodedJWT decodedJWT =jwtVerifier.verify(token);
-//        return decodedJWT.getClaims();
-//    }
+    //    public static Map<String,Claim> varifyToken(String token){
+    //        JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
+    //        DecodedJWT decodedJWT =jwtVerifier.verify(token);
+    //        return decodedJWT.getClaims();
+    //    }
 
-    public static String varifyToken(String token){
+    public static String varifyToken(String token) {
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
-        DecodedJWT decodedJWT =jwtVerifier.verify(token);
+        DecodedJWT decodedJWT = jwtVerifier.verify(token);
         return decodedJWT.getClaim("appkey").asString();
     }
 
-
     public static void main(String[] args) {
-        String token =createToken("mhm");
+        String token = createToken("mhm");
         System.out.println(token);
         System.out.println(varifyToken(token));
     }

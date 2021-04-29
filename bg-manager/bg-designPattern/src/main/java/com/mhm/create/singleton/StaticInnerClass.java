@@ -9,18 +9,20 @@ package com.mhm.create.singleton;
  */
 public class StaticInnerClass {
 
-    private static class InnerClass{
+    private static class InnerClass {
         private final static StaticInnerClass staticInnerClass = new StaticInnerClass();
     }
-    private StaticInnerClass(){
+
+    private StaticInnerClass() {
 
     }
 
     /**
      * 只有通过显式调用 getInstance 方法时，才会显式装载 SingletonHolder 类，从而实例化 instance
+     *
      * @return
      */
-    public final static StaticInnerClass getInstance(){
+    public final static StaticInnerClass getInstance() {
         return InnerClass.staticInnerClass;
     }
 

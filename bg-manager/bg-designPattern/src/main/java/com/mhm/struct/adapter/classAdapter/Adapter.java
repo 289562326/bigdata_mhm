@@ -7,6 +7,7 @@ import com.mhm.struct.adapter.Target;
  * 适配器角色：类间集成
  * 类适配器，耦合度高
  * 不符合合成服用原则
+ *
  * @author MHm
  * @date 2020-4-18 15:30
  */

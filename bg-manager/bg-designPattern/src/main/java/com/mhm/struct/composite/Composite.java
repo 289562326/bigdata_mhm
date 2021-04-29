@@ -11,11 +11,12 @@ import java.util.List;
  * @author MHm
  * @date 2020-4-19 13:15
  */
-public class Composite implements Component{
+public class Composite implements Component {
     /**
      * 树枝内部组合该接口，并且含有内部属性 List，里面放 Component。
      */
     private List<Component> list = new ArrayList<Component>();
+
     @Override
     public void add(Component c) {
         list.add(c);
@@ -31,10 +32,9 @@ public class Composite implements Component{
         return list.get(index);
     }
 
-
     @Override
     public void operation() {
-        for(Component c:list){
+        for (Component c : list) {
             c.operation();
         }
     }

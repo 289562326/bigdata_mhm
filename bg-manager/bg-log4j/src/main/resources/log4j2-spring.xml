@@ -3,7 +3,7 @@
     <properties>
         <property name="fileName">./log</property>
         <property name="fileSize">50MB</property>
-        <property name="APP_NAME" value="bg-log4j" />
+        <property name="APP_NAME" value="bg-log4j"/>
     </properties>
 
     <!--先定义所有的appender -->
@@ -48,18 +48,18 @@
         <logger name="com.opensymphony" level="error" additivity="false">
             <appender-ref ref="E"/>
         </logger>
-       <!-- <logger name="org.springframework" level="error" additivity="false">
-            <appender-ref ref="E"/>
-        </logger>
-        <logger name="o.a.k.clients" level="error" additivity="false">
-            <appender-ref ref="E"/>
-        </logger>
-        <logger name="o.apache.catalina" level="error" additivity="false">
-            <appender-ref ref="E"/>
-        </logger>
-        <logger name="o.a.c.c.C" level="error" additivity="false">
-            <appender-ref ref="E"/>
-        </logger>-->
+        <!-- <logger name="org.springframework" level="error" additivity="false">
+             <appender-ref ref="E"/>
+         </logger>
+         <logger name="o.a.k.clients" level="error" additivity="false">
+             <appender-ref ref="E"/>
+         </logger>
+         <logger name="o.apache.catalina" level="error" additivity="false">
+             <appender-ref ref="E"/>
+         </logger>
+         <logger name="o.a.c.c.C" level="error" additivity="false">
+             <appender-ref ref="E"/>
+         </logger>-->
         <root level="debug" includeLocation="true">
             <appender-ref ref="D"/>
             <appender-ref ref="stdout"/>

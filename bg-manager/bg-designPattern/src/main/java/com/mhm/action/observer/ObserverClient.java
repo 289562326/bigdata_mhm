@@ -2,6 +2,7 @@ package com.mhm.action.observer;
 
 /**
  * 观察者模式
+ *
  * @author MHm
  * @date 2020-4-24 13:46
  */

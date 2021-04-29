@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @Description: ${todo}
  * @date 2020-4-14 22:15
  */
-public class EurekaServer implements Cloneable,Serializable {
+public class EurekaServer implements Cloneable, Serializable {
     private String sid;
     private String name;
 

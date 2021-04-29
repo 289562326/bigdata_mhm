@@ -2,17 +2,18 @@ package com.mhm.action.memento;
 
 /**
  * 发起人
+ *
  * @author MHm
  * @date 2020-4-20 18:27
  */
 public class Originator {
     private String state;
 
-    public Memento create(){
+    public Memento create() {
         return new Memento(state);
     }
 
-    public void restore(Memento memento){
+    public void restore(Memento memento) {
         this.setState(memento.getState());
     }
 

@@ -15,7 +15,6 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 
 /**
- *
  * Created by MHm on 2019/6/26.
  */
 @Configuration
@@ -41,12 +40,11 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         // client_secret
         .secret("secret")
         // 该client允许的授权类型，不同的类型，则获得token的方式不一样。
-        .authorizedGrantTypes("authorization_code","implicit","refresh_token")
-        .resourceIds("resourceId")
+        .authorizedGrantTypes("authorization_code", "implicit", "refresh_token").resourceIds("resourceId")
         //回调uri，在authorization_code与implicit授权方式时，用以接收服务器的返回信息
         .redirectUris("http://localhost:8090/")
         // 允许的授权范围
-        .scopes("app","test");
+        .scopes("app", "test");
     }
 
     @Override
@@ -59,9 +57,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.realm("OAuth2-Sample")
-        .allowFormAuthenticationForClients()
-        .tokenKeyAccess("permitAll()")
+        security.realm("OAuth2-Sample").allowFormAuthenticationForClients().tokenKeyAccess("permitAll()")
         .checkTokenAccess("isAuthenticated()");
     }
 

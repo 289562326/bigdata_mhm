@@ -7,16 +7,18 @@ package com.mhm.create.singleton;
 public class LazySyncSingleton {
 
     private static LazySyncSingleton lazySyncSingleton;
-    private LazySyncSingleton(){
+
+    private LazySyncSingleton() {
 
     }
 
     /**
      * 增加了同步方法
+     *
      * @return
      */
-    public static synchronized LazySyncSingleton getInstance(){
-        if(null == lazySyncSingleton){
+    public static synchronized LazySyncSingleton getInstance() {
+        if (null == lazySyncSingleton) {
             lazySyncSingleton = new LazySyncSingleton();
         }
         return lazySyncSingleton;

@@ -8,6 +8,7 @@ package com.mhm.action.chainOfResponsibility;
  * 1、不能保证每个请求一定被处理
  * 2、对比较长的职责链，请求的处理可能涉及多个处理对象，系统性能将受到一定影响
  * 3、责链建立的合理性要靠客户端来保证
+ *
  * @author MHm
  * @date 2020-4-20 13:43
  */

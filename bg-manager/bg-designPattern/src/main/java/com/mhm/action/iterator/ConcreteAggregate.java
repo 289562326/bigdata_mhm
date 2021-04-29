@@ -7,8 +7,9 @@ import java.util.List;
  * @author MHm
  * @date 2020-4-20 13:56
  */
-public class ConcreteAggregate implements Aggregate{
-    private List<Object> list=new ArrayList<Object>();
+public class ConcreteAggregate implements Aggregate {
+    private List<Object> list = new ArrayList<Object>();
+
     @Override
     public void add(Object obj) {
         list.add(obj);
@@ -21,6 +22,6 @@ public class ConcreteAggregate implements Aggregate{
 
     @Override
     public Iterator getIterator() {
-        return(new ConcreteIterator(list));
+        return (new ConcreteIterator(list));
     }
 }

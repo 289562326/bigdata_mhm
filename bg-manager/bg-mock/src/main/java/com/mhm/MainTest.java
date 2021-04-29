@@ -13,8 +13,7 @@ public class MainTest {
         WireMock.removeAllMappings();
 
         //get请求
-        WireMock.stubFor(WireMock.get(WireMock.urlPathEqualTo("/user/1"))
-        .willReturn(WireMock.aResponse()
+        WireMock.stubFor(WireMock.get(WireMock.urlPathEqualTo("/user/1")).willReturn(WireMock.aResponse()
         //body里面写 json
         .withBody("{\"username\":FantJ}")
         //返回状态码

@@ -44,7 +44,7 @@ public class GenerateMeteScript {
                         //行从0开始
                         if (row.getCell(2) != null) {
                             meteId = String.valueOf(row.getCell(2).getStringCellValue());
-//                            System.out.println(meteId);
+                            //                            System.out.println(meteId);
                             if (StringUtils.isEmpty(meteId)) {
                                 continue;
                             }
@@ -53,20 +53,20 @@ public class GenerateMeteScript {
                         }
                         if (row.getCell(3) != null) {
                             meteKind = getMeteKind(row.getCell(3).getStringCellValue());
-//                            System.out.println(meteKind);
+                            //                            System.out.println(meteKind);
                         } else {
                             continue;
                         }
 
                         if (row.getCell(4) != null) {
                             meteIdEn = String.valueOf(row.getCell(4).getStringCellValue());
-//                            System.out.println(meteIdEn);
+                            //                            System.out.println(meteIdEn);
                         } else {
                             continue;
                         }
                         if (row.getCell(5) != null) {
                             meteName = String.valueOf(row.getCell(5).getStringCellValue());
-//                            System.out.println(meteName);
+                            //                            System.out.println(meteName);
                         } else {
                             continue;
                         }
@@ -110,8 +110,8 @@ public class GenerateMeteScript {
 
                         sb.append(
                         "INSERT INTO `t_cfg_model_mete` VALUES ('0101', '" + meteId + "','" + meteIdEn + "'," + meteKind
-                        + ",'" + unit + "',NULL,'" + meteIdEn + "',NULL,NULL," + low_effect + "," + up_effect + ",'oc','"
-                        + meteName + "');").append(line);
+                        + ",'" + unit + "',NULL,'" + meteIdEn + "',NULL,NULL," + low_effect + "," + up_effect
+                        + ",'oc','" + meteName + "');").append(line);
 
                     }
                 }

@@ -9,7 +9,8 @@ package com.mhm.create.singleton;
  */
 public enum EnumSingleton {
     INSTANCE;
-    public void getInstance(){
+
+    public void getInstance() {
 
     }
 }

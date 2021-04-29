@@ -2,6 +2,7 @@ package com.mhm.struct.flyweight;
 
 /**
  * 抽象享元角色
+ *
  * @author MHm
  * @date 2020-4-19 11:29
  */
@@ -12,7 +13,8 @@ public abstract class Flyweight {
     public Flyweight(String outterState) {
         this.outterState = outterState;
     }
-    public abstract  void operate();
+
+    public abstract void operate();
 
     public String getInnerState() {
         return innerState;

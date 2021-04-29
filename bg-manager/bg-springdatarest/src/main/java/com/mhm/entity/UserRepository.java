@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 /**
  * Created by MHm on 2019/6/12.
  */
-@RepositoryRestResource(path="user")
-public interface  UserRepository extends JpaRepository<User, Long> {
+@RepositoryRestResource(path = "user")
+public interface UserRepository extends JpaRepository<User, Long> {
 }

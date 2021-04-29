@@ -15,7 +15,7 @@ public class MyEndpopintConfiguration {
     @Bean
     @ConditionalOnMissingBean
     @ConditionalOnEnabledEndpoint
-    public MyEndPoint myEndPoint(){
+    public MyEndPoint myEndPoint() {
         return new MyEndPoint();
     }
 }

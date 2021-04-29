@@ -2,6 +2,7 @@ package com.mhm.create.factoryMethod.simpleFactory;
 
 /**
  * 简单工厂
+ *
  * @author Mhm
  * @Title: ${file_name}
  * @Package ${package_name}
@@ -12,11 +13,12 @@ public class SimpleFactory {
 
     /**
      * 违反了开闭原则，每增加一种类型，此处就要修改代码
+     *
      * @param type
      * @return
      */
-    public AccessMode getMode(String type){
-        switch (type.toUpperCase()){
+    public AccessMode getMode(String type) {
+        switch (type.toUpperCase()) {
             case "IEC104":
                 return new IEC104Mode();
             case "MQTT":
@@ -26,11 +28,10 @@ public class SimpleFactory {
     }
 
     /**
-     *
      * @param className
      * @return
      */
-    public AccessMode getModeByReflect(String className){
+    public AccessMode getModeByReflect(String className) {
         try {
             return (AccessMode) Class.forName(className).newInstance();
         } catch (InstantiationException e) {
@@ -44,11 +45,10 @@ public class SimpleFactory {
     }
 
     /**
-     *
      * @param clazz
      * @return
      */
-    public Object getModyByClass(Class<?extends AccessMode> clazz){
+    public Object getModyByClass(Class<? extends AccessMode> clazz) {
         try {
             return (AccessMode) Class.forName(clazz.getName()).newInstance();
         } catch (InstantiationException e) {
@@ -82,12 +82,13 @@ public class SimpleFactory {
 /**
  * 接入模式
  */
-interface AccessMode{
+interface AccessMode {
     boolean start();
+
     boolean stop();
 }
 
-class IEC104Mode implements AccessMode{
+class IEC104Mode implements AccessMode {
 
     @Override
     public boolean start() {
@@ -102,7 +103,7 @@ class IEC104Mode implements AccessMode{
     }
 }
 
-class MQTTMode implements AccessMode{
+class MQTTMode implements AccessMode {
 
     @Override
     public boolean start() {

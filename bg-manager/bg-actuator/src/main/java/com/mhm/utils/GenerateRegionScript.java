@@ -11,7 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- *
  * Created by MHm on 2019/6/18.
  */
 public class GenerateRegionScript {
@@ -24,6 +23,7 @@ public class GenerateRegionScript {
     public static void main(String[] args) {
         readExcel(fileName);
     }
+
     public static void readExcel(String fileName) {
         FileInputStream fileInputStream = null;
         try {
@@ -51,27 +51,28 @@ public class GenerateRegionScript {
                         } else {
                             continue;
                         }
-//                        if (row.getCell(1) != null) {
-//                            if (row.getCell(1).getCellType() != org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BLANK) {
-//                                areaCode = formatFloatNumber(
-//                                Float.valueOf((float) row.getCell(1).getNumericCellValue()));
-//                            } else {
-//                                if (StringUtils.isEmpty(row.getCell(11).getStringCellValue())) {
-//                                    areaCode = "NULL";
-//                                } else {
-//                                    areaCode = String.valueOf(row.getCell(12).getStringCellValue());
-//                                }
-//                            }
-//                            System.out.println(areaCode);
-//                            if (StringUtils.isEmpty(areaCode)) {
-//                                continue;
-//                            }
-//                        } else {
-//                            continue;
-//                        }
+                        //                        if (row.getCell(1) != null) {
+                        //                            if (row.getCell(1).getCellType() != org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BLANK) {
+                        //                                areaCode = formatFloatNumber(
+                        //                                Float.valueOf((float) row.getCell(1).getNumericCellValue()));
+                        //                            } else {
+                        //                                if (StringUtils.isEmpty(row.getCell(11).getStringCellValue())) {
+                        //                                    areaCode = "NULL";
+                        //                                } else {
+                        //                                    areaCode = String.valueOf(row.getCell(12).getStringCellValue());
+                        //                                }
+                        //                            }
+                        //                            System.out.println(areaCode);
+                        //                            if (StringUtils.isEmpty(areaCode)) {
+                        //                                continue;
+                        //                            }
+                        //                        } else {
+                        //                            continue;
+                        //                        }
 
-//                        sb.append("update from t_cfg_region set area_code="+areaCode+" where region_name='"+companyName+"';").append(line);
-                        sb.append("update t_cfg_region set area_code=320582 where region_name='"+companyName+"';").append(line);
+                        //                        sb.append("update from t_cfg_region set area_code="+areaCode+" where region_name='"+companyName+"';").append(line);
+                        sb.append("update t_cfg_region set area_code=320582 where region_name='" + companyName + "';")
+                        .append(line);
 
                     }
                 }

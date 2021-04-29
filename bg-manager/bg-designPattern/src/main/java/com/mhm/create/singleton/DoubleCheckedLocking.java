@@ -9,18 +9,20 @@ package com.mhm.create.singleton;
  */
 public class DoubleCheckedLocking {
     private volatile static DoubleCheckedLocking doubleCheckedLocking;
-    private DoubleCheckedLocking(){
+
+    private DoubleCheckedLocking() {
 
     }
 
     /**
      * 双检锁，高性能
+     *
      * @return
      */
-    public static DoubleCheckedLocking getInstance(){
-        if(null == doubleCheckedLocking){
-            synchronized (DoubleCheckedLocking.class){
-                if(null == doubleCheckedLocking){
+    public static DoubleCheckedLocking getInstance() {
+        if (null == doubleCheckedLocking) {
+            synchronized (DoubleCheckedLocking.class) {
+                if (null == doubleCheckedLocking) {
                     doubleCheckedLocking = new DoubleCheckedLocking();
                 }
             }

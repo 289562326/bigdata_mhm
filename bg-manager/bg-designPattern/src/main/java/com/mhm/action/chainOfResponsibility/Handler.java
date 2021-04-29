@@ -3,6 +3,7 @@ package com.mhm.action.chainOfResponsibility;
 /**
  * 抽象处理者角色
  * 参考netty的ChannelPipeLine
+ *
  * @author MHm
  * @date 2020-4-20 13:32
  */

@@ -6,9 +6,9 @@ import java.util.List;
  * @author MHm
  * @date 2020-4-20 13:53
  */
-public class ConcreteIterator implements Iterator{
-    private List<Object> list=null;
-    private int index=-1;
+public class ConcreteIterator implements Iterator {
+    private List<Object> list = null;
+    private int index = -1;
 
     public ConcreteIterator(List<Object> list) {
         this.list = list;
@@ -16,29 +16,26 @@ public class ConcreteIterator implements Iterator{
 
     @Override
     public Object first() {
-        index=0;
-        Object obj=list.get(index);;
+        index = 0;
+        Object obj = list.get(index);
+        ;
         return obj;
     }
 
     @Override
     public Object next() {
-        Object obj=null;
-        if(this.hasNext())
-        {
-            obj=list.get(++index);
+        Object obj = null;
+        if (this.hasNext()) {
+            obj = list.get(++index);
         }
         return obj;
     }
 
     @Override
     public boolean hasNext() {
-        if(index<list.size()-1)
-        {
+        if (index < list.size() - 1) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }

@@ -4,8 +4,9 @@ package com.mhm.action.template;
  * @author MHm
  * @date 2020-4-19 19:22
  */
-public class TemplateImpl extends Template{
+public class TemplateImpl extends Template {
     private boolean alarmFlag = false;
+
     @Override
     public void init() {
         System.out.println("init");
@@ -26,10 +27,11 @@ public class TemplateImpl extends Template{
         System.out.println("do it");
     }
 
-    protected  boolean isAlarm(){
+    protected boolean isAlarm() {
         return this.alarmFlag;
     }
-    public void setAlarm(boolean isAlarm){
+
+    public void setAlarm(boolean isAlarm) {
         this.alarmFlag = isAlarm;
     }
 }

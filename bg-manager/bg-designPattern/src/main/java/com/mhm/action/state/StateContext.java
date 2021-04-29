@@ -3,6 +3,7 @@ package com.mhm.action.state;
 /**
  * 状态模式
  * 策略模式很像
+ *
  * @author MHm
  * @date 2020-4-19 20:42
  */
@@ -10,7 +11,7 @@ public class StateContext {
     private IState state;
 
     public StateContext() {
-         state = null;
+        state = null;
     }
 
     public IState getState() {

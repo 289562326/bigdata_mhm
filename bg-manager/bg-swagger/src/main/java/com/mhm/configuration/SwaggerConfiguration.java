@@ -27,20 +27,11 @@ public class SwaggerConfiguration {
 
     @Bean
     public Docket createRestApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-        .enable(swaggerEnable)
-        .apiInfo(apiInfo())
-        .select()
-        .apis(RequestHandlerSelectors.basePackage(basePackage))
-        .paths(PathSelectors.any())
-        .build();
+        return new Docket(DocumentationType.SWAGGER_2).enable(swaggerEnable).apiInfo(apiInfo()).select()
+        .apis(RequestHandlerSelectors.basePackage(basePackage)).paths(PathSelectors.any()).build();
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-        .title("RESTful API")
-        .description("后台api接口文档")
-        .version("1.0")
-        .build();
+        return new ApiInfoBuilder().title("RESTful API").description("后台api接口文档").version("1.0").build();
     }
 }

@@ -7,10 +7,11 @@ package com.mhm.create.prototype;
  * （2）使用new 生成一个对象需要非常繁琐的过程（数据准备访问权限等）;
  * （3）构造函数比较复杂；
  * （4）在循环体中产生大量对象；
- *
+ * <p>
  * 使用场景：
  * spring  scope="property"
  * json
+ *
  * @author Mhm
  * @Title: ${file_name}
  * @Package ${package_name}
@@ -18,8 +19,6 @@ package com.mhm.create.prototype;
  * @date 2020-4-14 22:00
  */
 public class ObjPrototype {
-
-
 
     public static void main(String[] args) {
         EurekaServer server = new EurekaServer();

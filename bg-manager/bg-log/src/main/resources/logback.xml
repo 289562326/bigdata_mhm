@@ -3,20 +3,22 @@
     <!-- 禁用logback启动时的日志 -->
     <statusListener class="ch.qos.logback.core.status.NopStatusListener"/>
     <!-- 这里配置log路径 -->
-    <property name="APP_NAME" value="bg-log" />
-    <property name="LOG_HOME" value="${user.home}/logs/test/${APP_NAME}" />
+    <property name="APP_NAME" value="bg-log"/>
+    <property name="LOG_HOME" value="${user.home}/logs/test/${APP_NAME}"/>
     <!-- 定义日志文件的存储地址 勿在 logback的配置中使用相对路径 -->
     <!--<property name="LOG_HOME" value="logs"/>-->
 
     <!-- 控制台输出 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-       <!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %msg [%thread]\(%c:%L\)%n</pattern>
-        </encoder>-->
+        <!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+             <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %msg [%thread]\(%c:%L\)%n</pattern>
+         </encoder>-->
         <encoder>
             <!--<pattern>%d %p (%file:%line\)- %m%n</pattern>-->
             <!--格式化输出：%d:表示日期    %thread:表示线程名     %-5level:级别从左显示5个字符宽度  %msg:日志消息    %n:是换行符-->
-            <pattern>%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger)(%c:%L\) - %cyan(%msg%n)</pattern>
+            <pattern>%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger)(%c:%L\)
+                - %cyan(%msg%n)
+            </pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
@@ -46,9 +48,9 @@
 
     <!-- 定义各个包的详细路径，继承root宝的值 -->
     <logger name="com.mhm" level="DEBUG"/>
-   <!-- <logger name="org" level="ERROR"/>
-    <logger name="ch" level="ERROR"/>
-    <logger name="io" level="ERROR"/>-->
+    <!-- <logger name="org" level="ERROR"/>
+     <logger name="ch" level="ERROR"/>
+     <logger name="io" level="ERROR"/>-->
 
     <!-- 此值由 application.properties的spring.profiles.active=dev指定 -->
     <springProfile name="dev">

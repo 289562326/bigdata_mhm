@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Configuration;
 @EnableAdminServer
 public class BgAdminApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BgAdminApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BgAdminApplication.class, args);
+    }
 
 }

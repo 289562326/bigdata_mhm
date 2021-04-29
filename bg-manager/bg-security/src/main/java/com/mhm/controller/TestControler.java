@@ -33,9 +33,9 @@ public class TestControler {
 
     @ApiOperation(value = "debug")
     @RequestMapping()
-    public String test(@RequestParam(value="name") String name) {
+    public String test(@RequestParam(value = "name") String name) {
         //从请求头中取出token
-        return "hello:"+name;
+        return "hello:" + name;
     }
 
     @ApiOperation(value = "debug")
@@ -44,8 +44,10 @@ public class TestControler {
         //从请求头中取出token
         String token = request.getParameter("access_token");
         RestTemplate restTemplate = new RestTemplate();
-        String rest = restTemplate.getForObject("http://122.112.200.204:18000/ycloud-oauth/oauth/authorize?response_type=token&scope=&client_id=yyc_ycloud-admin&redirect_uri=http://localhost:8080/debug/login/#/&state=e5dae6fd-cf6e-418b-9de7-466fa6f0e562",String.class);
-        return "redirect:"+rest;
+        String rest = restTemplate.getForObject(
+        "http://122.112.200.204:18000/ycloud-oauth/oauth/authorize?response_type=token&scope=&client_id=yyc_ycloud-admin&redirect_uri=http://localhost:8080/debug/login/#/&state=e5dae6fd-cf6e-418b-9de7-466fa6f0e562",
+        String.class);
+        return "redirect:" + rest;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/azkaban")
@@ -64,18 +66,18 @@ public class TestControler {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
         headers.add("X-Requested-With", "XMLHttpRequest");
-        LinkedMultiValueMap<String,String> linkedMultiValueMap = new LinkedMultiValueMap<String, String>();
+        LinkedMultiValueMap<String, String> linkedMultiValueMap = new LinkedMultiValueMap<String, String>();
         linkedMultiValueMap.add("action", "login");
         linkedMultiValueMap.add("username", "azkaban");
         linkedMultiValueMap.add("password", "azkaban");
         HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(linkedMultiValueMap, headers);
 
-
-        String rest = restTemplate.postForObject("http://192.168.0.197:8081",httpEntity,String.class);
+        String rest = restTemplate.postForObject("http://192.168.0.197:8081", httpEntity, String.class);
         JSONObject jsonObject = JSON.parseObject(rest);
         String sessionId = jsonObject.getString("session.id");
         String projectName = null;
-        String projects = restTemplate.getForObject("http://192.168.0.197:8081/index?all&session.id="+sessionId,String.class);
+        String projects = restTemplate
+        .getForObject("http://192.168.0.197:8081/index?all&session.id=" + sessionId, String.class);
 
         return projects;
     }
@@ -88,15 +90,15 @@ public class TestControler {
         String token = request.getParameter("access_token");
 
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.add("Authorization"," Bearer "+token);
+        map.add("Authorization", " Bearer " + token);
         HttpHeaders header = new HttpHeaders();
         // 需求需要传参为form-data格式
         header.setContentType(MediaType.MULTIPART_FORM_DATA);
         HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(map, header);
         String url = "http://122.112.200.204:18000/ycloud-oauth/users/info";
         JSONObject response = restTemplate.postForObject(url, httpEntity, JSONObject.class);
-        response.put("userId",response.get("id"));
-        response.put("userName",response.get("username"));
+        response.put("userId", response.get("id"));
+        response.put("userName", response.get("username"));
         //设置返回值
         Map<String, Object> retMap = new HashMap<String, Object>();
         retMap.put("userId", response.get("id") + "");

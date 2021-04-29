@@ -4,7 +4,7 @@ package com.mhm.action.mediator;
  * @author MHm
  * @date 2020-4-26 21:21
  */
-public class BColleague extends Colleague{
+public class BColleague extends Colleague {
     @Override
     public void receive() {
         System.out.println("B同事收到请求");

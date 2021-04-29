@@ -7,15 +7,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class BgLog4jApplication {
-	private final static Logger logger = LoggerFactory.getLogger(BgLog4jApplication.class);
-	public static void main(String[] args) {
-		SpringApplication.run(BgLog4jApplication.class, args);
-		logger.trace("trace");
-		logger.debug("debug");
-		logger.info("info");
-		logger.warn("warn");
-		logger.error("error");
+    private final static Logger logger = LoggerFactory.getLogger(BgLog4jApplication.class);
 
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BgLog4jApplication.class, args);
+        logger.trace("trace");
+        logger.debug("debug");
+        logger.info("info");
+        logger.warn("warn");
+        logger.error("error");
+
+    }
 
 }

@@ -9,10 +9,10 @@ import java.util.Map;
 /**
  * Created by MHm on 2019/9/2.
  */
-@Endpoint(id="mhm")
+@Endpoint(id = "mhm")
 public class MyEndPoint {
     @ReadOperation
-    public Map<String,String> health(){
+    public Map<String, String> health() {
         Map<String, String> result = new HashMap<>();
         result.put("author", "MHm");
         result.put("age", "33");

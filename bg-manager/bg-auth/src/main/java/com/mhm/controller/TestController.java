@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 
 /**
- *
  * Created by MHm on 2019/6/26.
  */
 @RestController
 public class TestController {
     private final Logger logger = LoggerFactory.getLogger(TestController.class);
+
     @GetMapping("/public/{id}")
     public String getProduct(@PathVariable String id) {
         logger.info("当前用户认证信息：{}", JSONObject.toJSONString(SecurityContextHolder.getContext().getAuthentication()));
@@ -38,9 +38,9 @@ public class TestController {
     }
 
     @RequestMapping("/res/getMsg")
-    public String getMsg(String msg,Principal principal) {//principal中封装了客户端（用户，也就是clientDetails，区别于Security的UserDetails，其实clientDetails中也封装了UserDetails），不是必须的参数，除非你想得到用户信息，才加上principal。
-        return "Get the msg: "+msg;
+    public String getMsg(String msg,
+    Principal principal) {//principal中封装了客户端（用户，也就是clientDetails，区别于Security的UserDetails，其实clientDetails中也封装了UserDetails），不是必须的参数，除非你想得到用户信息，才加上principal。
+        return "Get the msg: " + msg;
     }
-
 
 }

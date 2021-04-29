@@ -13,7 +13,6 @@ public class AbstractFactoryClient {
         RDBMSDeployment mysql = standAloneFactory.createRDBMS("com.mhm.create.abstractFactory.Mysql");
         mysql.deplay();
 
-
         ClusterFactory clusterFactory = new ClusterFactory();
         CacheDeployment memmCached = clusterFactory.createCache("com.mhm.create.abstractFactory.MemmCached");
         memmCached.deplay();

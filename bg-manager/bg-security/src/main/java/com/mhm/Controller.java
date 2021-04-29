@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class Controller {
 
-    @RequestMapping(method = RequestMethod.GET,value = "/test")
-    public String test(){
+    @RequestMapping(method = RequestMethod.GET, value = "/test")
+    public String test() {
         return "test";
     }
 }

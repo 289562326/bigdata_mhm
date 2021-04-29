@@ -2,6 +2,7 @@ package com.mhm.struct.adapter;
 
 /**
  * 目标角色的实现类
+ *
  * @author MHm
  * @date 2020-4-19 14:23
  */
